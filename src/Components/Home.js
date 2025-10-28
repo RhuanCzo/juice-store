@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Search, User, ShoppingCart } from "lucide-react"
+import Juice from "../Images/Summer-Chilled-Orange-Juice-drink-orange-juice-summer-ice-drink_497362_wh1200-removebg-preview.png"
 
 export default function Home() {
     return (
@@ -14,11 +15,29 @@ export default function Home() {
                     <button>Blog</button>
                 </ContainerNavigation>
                 <ContainerUser>
-                    <button><Search /></button>
-                    <button><ShoppingCart /></button>
-                    <button><User /></button>
+                    <div><Search /></div>
+                    <div><ShoppingCart /></div>
+                    <div><User /></div>
                 </ContainerUser>
             </NavBar>
+            <ContainerContent>
+                <ContainerAd>
+                    <header>
+                        Faster juice delivery service
+                    </header>
+                    <Title>
+                        Juice to make your day Fresh
+                    </Title>
+                    <Descrição>
+                        Stay cool this summer as fruit jucies and Drinks are available online.
+                    </Descrição>
+                    <Interativos>
+                        <Cart><ShoppingCart color="white" /></Cart>
+                        <AddToCart>ADD TO CART</AddToCart>
+                        <HowItWorks>HOW IT WORKS</HowItWorks>
+                    </Interativos>
+                </ContainerAd>
+            </ContainerContent>
         </HomeStyled>
     )
 }
@@ -46,12 +65,12 @@ justify-content: space-around;
 button {
     background-color:white;
     border: solid 1px white;
-min-width: 70px;
-height: 40px;
-border-top-left-radius: 30px;
-border-bottom-left-radius: 30px;
-border-top-right-radius: 30px;
-border-bottom-right-radius: 30px;
+    min-width: 70px;
+    height: 40px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 button:hover {
@@ -66,10 +85,86 @@ display: flex;
 align-items: center;
 justify-content:space-around ;
 
-button {
+div {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+`
+const ContainerContent = styled.div`
+padding-top: 100px;
+width: 100%;
+height: 70%;
+display: flex;
+`
+const ContainerAd = styled.div`
+padding-top: 2%;
+width: 40%;
+height: 80%;
+margin-left: 150px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+
+header {
+    width: 35%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: beige;
+    font-size: 20px;
+}
+`
+const Title = styled.span`
+font-size: 90px;
+`
+const Descrição = styled.span`
+font-size: 20px;
+color: gray;
+`
+const Interativos = styled.div`
+width: 100%;
+height: 50px;
+display: flex;
+align-items: center;
+gap: 20px;
+`
+const AddToCart = styled.button`
+color: white;
+border: none;
+background-color: orange;
+width: 30%;
+height: 50px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+`
+const HowItWorks = styled.button`
+border-color: orange;
+color: orange;
+width: 30%;
+height: 50px;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border-top-right-radius: 30px;
+border-bottom-right-radius: 30px;
+`
+const Cart = styled.div`
+width: 50px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background-color: orange;
 `
