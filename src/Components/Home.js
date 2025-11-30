@@ -248,7 +248,6 @@ width:100%;
 height:30%;
 h1{ 
     margin-left: 150px;
-    font-size: ;
 }
 `
 const Products = styled.div`
