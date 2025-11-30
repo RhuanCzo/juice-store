@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { Search, User, ShoppingCart } from "lucide-react"
-import Juice from "../Images/Summer-Chilled-Orange-Juice-drink-orange-juice-summer-ice-drink_497362_wh1200-removebg-preview.png"
+import Juice from "../Images/Imagem01.png"
+import JuiceProduct from "../Images/image.png"
 
 export default function Home() {
     return (
@@ -37,7 +38,52 @@ export default function Home() {
                         <HowItWorks>HOW IT WORKS</HowItWorks>
                     </Interativos>
                 </ContainerAd>
+                <Image src={Juice} />
+                <ProductAd>
+                    <div>
+                        <span>Details</span>
+                        <h1>$105.36</h1>
+                    </div>
+                    <h2>300 ml</h2>
+                </ProductAd>
             </ContainerContent>
+            <ContainerProducts>
+                <h1>Best Juice</h1>
+                <Products>
+                    <Product>
+                        <img src={JuiceProduct} />
+                        <div>
+                            <span>Details</span>
+                            <h1>$105.36</h1>
+                            <h2>300 ml</h2>
+                        </div>
+                    </Product>
+                    <Product>
+                        <img src={JuiceProduct} />
+                        <div>
+                            <span>Details</span>
+                            <h1>$105.36</h1>
+                            <h2>300 ml</h2>
+                        </div>
+                    </Product>
+                    <Product>
+                        <img src={JuiceProduct} />
+                        <div>
+                            <span>Details</span>
+                            <h1>$105.36</h1>
+                            <h2>300 ml</h2>
+                        </div>
+                    </Product>
+                    <Product>
+                        <img src={JuiceProduct} />
+                        <div>
+                            <span>Details</span>
+                            <h1>$105.36</h1>
+                            <h2>300 ml</h2>
+                        </div>
+                    </Product>
+                </Products>
+            </ContainerProducts>
         </HomeStyled>
     )
 }
@@ -167,4 +213,77 @@ align-items: center;
 justify-content: center;
 border-radius: 50%;
 background-color: orange;
+`
+const Image = styled.img`
+width:30%;
+height:100%;
+background: none;
+`
+const ProductAd = styled.div`
+border: 2px solid gray;
+margin-top: 260px;
+border-radius: 20%;
+width: 10%;
+height: 40%;
+font-size: 25px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 50px;
+padding: 25px;
+h1 {
+    font-size: 30px;
+}
+span {
+    color: gray;
+}
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+`
+const ContainerProducts = styled.div`
+width:100%;
+height:30%;
+h1{ 
+    margin-left: 150px;
+    font-size: ;
+}
+`
+const Products = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+gap: 40px;
+`
+
+const Product = styled.div`
+border: 2px solid gray;
+margin-top: 30px;
+border-radius: 12%;
+width: 20%;
+height: 70%;
+font-size: 25px;
+display: flex;
+align-items: center;
+gap: 30px;
+padding: 25px;
+h1 {
+    margin: 0;
+    font-size: 30px;
+}
+span {
+    color: gray;
+}
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+img{
+    width: 120px;
+    height: 180px;
+}
 `
