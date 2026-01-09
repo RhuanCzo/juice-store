@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Search, User, ShoppingCart } from "lucide-react"
-import Juice from "../Images/Summer-Chilled-Orange-Juice-drink-orange-juice-summer-ice-drink_497362_wh1200-removebg-preview.png"
+import Juice from "../Images/image.png"
 
 export default function Home() {
     return (
@@ -37,6 +37,51 @@ export default function Home() {
                         <HowItWorks>HOW IT WORKS</HowItWorks>
                     </Interativos>
                 </ContainerAd>
+                <Img src={Juice}></Img>
+                <Info>
+                    <div>
+                        <span>Details</span>
+                        <h1>$105.36</h1>
+                    </div>
+                    <h3>300 ml</h3>
+                </Info>
+                <ContainerProducts>
+                    <h1>Best Juice</h1>
+                    <Products>
+                        <Product>
+                            <img src={Juice}></img>
+                           <div>
+                                <span>Details</span>
+                                <h1>$105.36</h1>
+                                <h3>300 ml</h3>
+                            </div>
+                        </Product>
+                        <Product>
+                            <img src={Juice}></img>
+                           <div>
+                                <span>Details</span>
+                                <h1>$105.36</h1>
+                                <h3>300 ml</h3>
+                            </div>
+                        </Product>
+                        <Product>
+                            <img src={Juice}></img>
+                           <div>
+                                <span>Details</span>
+                                <h1>$105.36</h1>
+                                <h3>300 ml</h3>
+                            </div>
+                        </Product>
+                        <Product>
+                            <img src={Juice}></img>
+                           <div>
+                                <span>Details</span>
+                                <h1>$105.36</h1>
+                                <h3>300 ml</h3>
+                            </div>
+                        </Product>
+                    </Products>
+                </ContainerProducts>
             </ContainerContent>
         </HomeStyled>
     )
@@ -100,10 +145,11 @@ padding-top: 100px;
 width: 100%;
 height: 70%;
 display: flex;
+flex-wrap: wrap;
 `
 const ContainerAd = styled.div`
 padding-top: 2%;
-width: 40%;
+width: 38%;
 height: 80%;
 margin-left: 150px;
 display: flex;
@@ -124,6 +170,63 @@ header {
     font-size: 20px;
 }
 `
+const Img = styled.img`
+width: 500px;
+height: 500px;
+border-radius: 30px;
+`
+
+const Info = styled.div`
+font-size: 20px;
+width: 180px;
+height: 200px;
+margin-left: 100px;
+margin-top:100px;
+background-color: beige;
+border-radius: 30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap:40px;
+
+h1 {
+    font-size: 30px;
+}
+`
+const ContainerProducts = styled.div`
+width: 80%;
+height: 300px;
+margin-left: 150px;
+padding-top: 50px;
+`
+const Products = styled.div`
+width: 100%;
+height: 100%;
+padding-top: 30px;
+display: flex;
+gap: 50px;
+`
+const Product = styled.div`
+font-size: 20px;
+width: 350px;
+height: 240px;
+background-color: beige;
+border-radius: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+h1 {
+    font-size: 30px;
+}
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+}
+`
+
 const Title = styled.span`
 font-size: 90px;
 `
