@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import Juice from "../Images/image.png"
 
-export default function Car () {
+export default function Car ({selected = []}) {
+    console.log(selected)
     return (
         <>
             <Container>
@@ -10,20 +11,15 @@ export default function Car () {
                     <span>total: R$ 240,00</span>
                 </header>
                 <CarProducts>
-                    <Product>
+                    {selected.map((s) => (
+                    <Product key={s.id}>
                         <img src={Juice}/>
                         <div>
-                            <span>Suquin de laranjinha</span>
-                            Qtd: 1 R$ 100,00
+                            <span>{s.name}</span>
+                            Qtd: 1 R$ {s.price}
                         </div>
                     </Product>
-                    <Product>
-                        <img src={Juice}/>
-                        <div>
-                            <span>Suquin de laranjinha</span>
-                            Qtd: 1 R$ 100,00
-                        </div>
-                    </Product>
+                    ))}
                     <button>Finalizar</button>
                 </CarProducts>
             </Container>

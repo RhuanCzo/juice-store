@@ -3,12 +3,26 @@ import Juice from "../Images/image.png"
 import { ShoppingCart } from "lucide-react"
 import Car from "../Components/Car"
 import NavBar from "../Components/NavBar.js"
+import { useState } from "react"
+
+const products = [
+    { id: 1, name: 'Juice 1', price: 105.36, volume: '300 ml' },
+    { id: 2, name: 'Juice 2', price: 105.36, volume: '300 ml' },
+];
 
 export default function Home() {
+    const [selected, setSelected] = useState([{id: 2, name: 'Juice 2', price: 105.36, volume: '300 ml'}])
+
+    function addToCart(product) {
+        setSelected([...selected, product])
+    }
+
     return (
-        <HomeStyled>    
-            <NavBar/>
-                    <Car></Car>
+        <HomeStyled>
+            <NavBar />
+                <Car
+                    selected={selected}
+                />
             <ContainerContent>
                 <ContainerAd>
                     <header>
@@ -37,38 +51,16 @@ export default function Home() {
                 <ContainerProducts>
                     <h1>Best Juice</h1>
                     <Products>
-                        <Product>
-                            <img src={Juice}></img>
-                           <div>
-                                <span>Details</span>
-                                <h1>$105.36</h1>
-                                <h3>300 ml</h3>
-                            </div>
-                        </Product>
-                        <Product>
-                            <img src={Juice}></img>
-                           <div>
-                                <span>Details</span>
-                                <h1>$105.36</h1>
-                                <h3>300 ml</h3>
-                            </div>
-                        </Product>
-                        <Product>
-                            <img src={Juice}></img>
-                           <div>
-                                <span>Details</span>
-                                <h1>$105.36</h1>
-                                <h3>300 ml</h3>
-                            </div>
-                        </Product>
-                        <Product>
-                            <img src={Juice}></img>
-                           <div>
-                                <span>Details</span>
-                                <h1>$105.36</h1>
-                                <h3>300 ml</h3>
-                            </div>
-                        </Product>
+                        {products.map((p) => (
+                            <Product key={p.id} onClick={() => addToCart(p)}>
+                                <img src={Juice}></img>
+                                <div>
+                                    <span>Details</span>
+                                    <h1>R${p.price}</h1>
+                                    <h3>{p.volume}</h3>
+                                </div>
+                            </Product>
+                        ))}
                     </Products>
                 </ContainerProducts>
             </ContainerContent>

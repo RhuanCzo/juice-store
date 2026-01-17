@@ -29,7 +29,7 @@ export default function Login() {
 
         try {
             await axios.post("http://localhost:4000/sign-up", userRegister)
-            alert("registro finalizado com sucesso")
+            console.log("registro feito com sucesso")
         } catch (err) {
             console.log(err.message)
         }
