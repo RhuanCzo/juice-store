@@ -1,22 +1,47 @@
 import styled from "styled-components"
 import Juice from "../Images/image.png"
+import axios from "axios"
 
-export default function Car ({selected = []}) {
-    console.log(selected)
+export default function Car ({selected = [], setSelected}) {
+
+
+    function updateItem(s, action) {
+  setSelected(selected.map(item => {
+    if (item.id === s.id) {
+      if (action === "decrease" && item.qtd > 1)
+        return { ...item, qtd: item.qtd - 1 }
+
+      if (action === "increase")
+        return { ...item, qtd: item.qtd + 1 }
+    }
+    return item
+  }))
+}
+
+
+    function getTotal () {
+        let sum = 0
+        for (let s of selected) {
+            sum += s.price * s.qtd
+        }
+        return (sum)
+    }
+    const cartTotal = getTotal()
+
     return (
         <>
             <Container>
                 <header>
                     <span>carrinho</span>
-                    <span>total: R$ 240,00</span>
+                    <span>total: R$ {cartTotal}</span>
                 </header>
                 <CarProducts>
                     {selected.map((s) => (
-                    <Product key={s.id}>
+                    <Product>
                         <img src={Juice}/>
                         <div>
                             <span>{s.name}</span>
-                            Qtd: 1 R$ {s.price}
+                           <button onClick={() => updateItem(s, "decrease")}>-</button> Qtd:{s.qtd} <button onClick={() => updateItem(s, "increase")}>+</button> R$ {s.price}
                         </div>
                     </Product>
                     ))}
@@ -29,10 +54,10 @@ export default function Car ({selected = []}) {
 
 const Container = styled.div`
 width: 400px;
-height: 500px;
+min-height: 500px;
 margin-top: 100px;
 padding: 30px;
-background-color: aqua;
+background-color: beige;
 position: absolute;
 right: 0;
 font-size: 20px;
@@ -72,5 +97,10 @@ display: flex;
 div {
     display: flex;
     flex-direction: column;
+}
+
+button {
+    width: 10px;
+    height: 10px;
 }
 `

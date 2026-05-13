@@ -1,7 +1,11 @@
 import styled from "styled-components"
 import { Search, User, ShoppingCart } from "lucide-react"
 
-export default function NavBar() {
+export default function NavBar({setCarOpen, carOpen}) {
+
+    function cartOpen() {
+        setCarOpen(!carOpen)
+    }
     return (
         <TopBar>
             <h1>Juice</h1>
@@ -14,7 +18,7 @@ export default function NavBar() {
             </ContainerNavigation>
             <ContainerUser>
                 <div><Search /></div>
-                <div><ShoppingCart />
+                <div onClick={() => cartOpen()}><ShoppingCart />
                 </div>
                 <div><User /></div>
             </ContainerUser>

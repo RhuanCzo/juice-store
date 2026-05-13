@@ -17,7 +17,8 @@ export default function Login() {
         e.preventDefault()
 
         try {
-            await axios.post("http://localhost:4000/sign-in", user)
+            const promisse = await axios.post("http://localhost:4000/sign-in", user)
+            localStorage.setItem("token", promisse.data.token)
             navigate("/")
         } catch (err) {
             console.log(err.message)

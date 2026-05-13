@@ -6,23 +6,29 @@ import NavBar from "../Components/NavBar.js"
 import { useState } from "react"
 
 const products = [
-    { id: 1, name: 'Juice 1', price: 105.36, volume: '300 ml' },
-    { id: 2, name: 'Juice 2', price: 105.36, volume: '300 ml' },
+    { id: 1, name: 'Juice 1', price: 105.36, volume: '300 ml', qtd: 1 },
+    { id: 2, name: 'Juice 2', price: 99.99, volume: '300 ml', qtd: 1 },
 ];
 
-export default function Home() {
-    const [selected, setSelected] = useState([{id: 2, name: 'Juice 2', price: 105.36, volume: '300 ml'}])
+export default function Home({setCarOpen, carOpen}) {
+    const [selected, setSelected] = useState([])
 
     function addToCart(product) {
+        const productSelected = selected.find(p => p.id === product.id)
+        if (productSelected) {
+            return
+        }
         setSelected([...selected, product])
     }
 
     return (
         <HomeStyled>
-            <NavBar />
-                <Car
-                    selected={selected}
-                />
+           {carOpen===true?<Car
+                selected={selected}
+                setSelected={setSelected}
+                setCarOpen={setCarOpen}
+            /> : "" } 
+            <NavBar setCarOpen={setCarOpen} carOpen={carOpen} />
             <ContainerContent>
                 <ContainerAd>
                     <header>
